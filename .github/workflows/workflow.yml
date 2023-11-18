@@ -3,13 +3,13 @@ name: CI/CD Workflow
 on:
   pull_request:
     branches:
-      - '*'
+      - "*"
 
   push:
     branches:
       - main
     tags:
-      - '*'
+      - "*"
 
 jobs:
   lint:
@@ -26,13 +26,13 @@ jobs:
           node-version: 20
 
       - name: Installation des dépendances JavaScript
-        run:  npm install
+        run: npm install
 
       - name: Lint du fichier index.js
-        run:  npm run lint-index
+        run: npm run lint-index
 
       - name: Lint du fichier test.js
-        run:  npm run lint-test
+        run: npm run lint-test
 
       - name: Lint du fichier Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
@@ -53,7 +53,7 @@ jobs:
           node-version: 20
 
       - name: Installation des dépendances JavaScript
-        run:  npm install
+        run: npm install
 
       - name: Test
         run: npm run test
@@ -73,7 +73,7 @@ jobs:
         run: docker build --rm -t youpidok/random-number .
 
       - name: Run youpidok/random-number
-        run:  docker run --name random-number -p 3000:3000 -d youpidok/random-number
+        run: docker run --name random-number -p 3000:3000 -d youpidok/random-number
 
   deploy-image-latest:
     name: Push youpidok/random-number:latest
