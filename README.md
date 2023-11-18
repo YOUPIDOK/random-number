@@ -57,3 +57,26 @@ Démarre l'application sur le port [3000](http://localhost:3000)
 ```shell
 npm run start
 ```
+
+## Docker
+> Image : [youpidok/random-number](https://hub.docker.com/r/youpidok/random-number/tags)
+### Build
+```shell
+docker build --rm -t random-number .
+```
+### Run
+```shell
+docker run --name random-number -p 3000:3000 -d random-number 
+```
+### Tag
+```shell
+docker tag random-number youpidok/random-number:tag
+```
+### Push
+```shell
+docker push youpidok/random-number:tag
+```
+Lint du fichier [Dockerfile](Dockerfile)
+```shell
+hadolint Dockerfile
+```
