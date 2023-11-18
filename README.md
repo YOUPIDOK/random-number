@@ -110,3 +110,7 @@ Lors d'un **push** de **tag** :
 - Tag l'image [youpidok/random-number:tag](https://hub.docker.com/r/youpidok/random-number/tags)
 - Push l'image [youpidok/random-number:tag](https://hub.docker.com/r/youpidok/random-number/tags) sur Docker Hub
 - Génération des notes de [releases](https://github.com/YOUPIDOK/ranom-number/releases)
+
+## Releases
+- **[1.0.0](https://github.com/YOUPIDOK/random-number/releases/tag/1.0.0)**
+- **[2.0.0](https://github.com/YOUPIDOK/random-number/releases/tag/2.0.0)**
