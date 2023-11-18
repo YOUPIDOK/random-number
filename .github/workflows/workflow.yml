@@ -1,0 +1,59 @@
+name: CI/CD Workflow
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main' || (github.event_name == 'push' && github.ref_type == 'tag')
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Installation de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Installation des dépendances JavaScript
+        run:  npm install
+
+      - name: Lint du fichier index.js
+        run:  npm run lint-index
+
+      - name: Lint du fichier test.js
+        run:  npm run lint-test
+
+      - name: Lint du fichier Dockerfile
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+
+  jest-test:
+    name: Test avec jest et supertest
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main' || (github.event_name == 'push' && github.ref_type == 'tag')
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Installation de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Installation des dépendances JavaScript
+        run:  npm install
+
+      - name: Test
+        run: npm run test

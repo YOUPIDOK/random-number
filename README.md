@@ -25,7 +25,27 @@ Elle génère un entier aléatoire compris entre 1 et 100 et le renvoie au forma
 }
 ```
 
-
+### Lint
+Lint du fchier [index.js](src/index.js)
+```shell
+npm run lient-index
+```
+Lint du fchier [test.js](test/test.js)
+```shell
+npm run lint-test
+```
+### Test
+Test que le endpoint http://localhost:3000 renvoi bien un JSON ayant cette structure
+```json
+{
+    "min": number,
+    "max": number,
+    "random_number": number
+}
+```
+```shell
+npm run test
+```
 
 ## Commandes
 ### Installation
